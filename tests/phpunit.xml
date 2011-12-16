@@ -1,0 +1,40 @@
+<phpunit colors="true" bootstrap="./index.php">
+
+  <testsuites>
+  	<testsuite name="Projet Site1">
+  		<directory>.</directory>
+  	</testsuite>
+  </testsuites>
+  
+  <filter>
+    <blacklist>
+        <directory suffix=".php">/usr/local/zend/share</directory>
+        <file>../application/Bootstrap.php</file>
+    </blacklist>
+  </filter>
+  
+  <php>
+	  <includePath>.</includePath>
+	  <ini name="memory_limit" value="1024M"/>
+	  <ini name="max_execution_time" value="60"/>
+	  <const name="foo" value="bar"/>
+	  <var name="foo" value="bar"/>
+	  <env name="APPLICATION_ENV" value="testing"/>
+	  <post name="foo" value="bar"/>
+	  <get name="foo" value="bar"/>
+	  <cookie name="foo" value="bar"/>
+	  <server name="foo" value="bar"/>
+	  <files name="foo" value="bar"/>
+	  <request name="foo" value="bar"/>
+  </php>
+	
+  <logging>
+     <log type="coverage-clover" target="../build/logs/phpunit-clover.xml"/>
+     <log type="coverage-html" target="../build/logs/phpunit-coverage"
+          highlight="true" title="Code coverage" yui="true" />
+  	 <log type="junit" target="../build/logs/phpunit.xml"/>
+  	 <log type="tap" target="../build/logs/phpunit.tap"/>
+  	 <log type="testdox-html" target="../build/logs/phpunit.html"/>
+  </logging>
+
+</phpunit>

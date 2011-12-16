@@ -1,0 +1,17 @@
+<IfModule mod_rewrite.c>
+# condition à partir du root
+ RewriteEngine On
+ RewriteBase /
+ 
+# ce n'est pas un fichier , un répertoire ou un lien
+ RewriteCond %{REQUEST_FILENAME} !-f
+ RewriteCond %{REQUEST_FILENAME} !-d
+ RewriteCond %{REQUEST_FILENAME} !-l
+ 
+# requette est redirigée vers l'index ?: moins gourmande
+ RewriteRule ^(?:.*)$ index.php
+ 
+</IfModule>
+
+# chargement de l'environnement
+SetEnv APPLICATION_ENV development
